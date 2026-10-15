@@ -3,36 +3,224 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SumGrid — Privacy Policy</title>
+<title>Privacy Policy – SumGrid</title>
+<meta name="description" content="How the SumGrid app and the sumgridgames.com website handle your information.">
+<link rel="canonical" href="https://sumgridgames.com/privacy.html">
+<meta name="theme-color" content="#F7F9FE">
+<link rel="icon" type="image/png" href="https://sumgridgames.com/img/icon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root { color-scheme: light; }
-  body { margin: 0; background: #F7F9FE; color: #1B2A3F; font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  main { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
-  h1 { font-size: 28px; margin: 0 0 4px; } h2 { font-size: 19px; margin: 32px 0 8px; }
-  .muted { color: #627189; } a { color: #3577C4; }
-  li { margin: 4px 0; }
+/* SumGrid website — "Sky Tones" glass look, same palette as the app (src/theme.ts). Light only. */
+:root {
+  color-scheme: light;
+  --ground: #F7F9FE;
+  --ink: #1B2A3F;
+  --muted: #627189;
+  --faint: #8A96AA;
+  --line: #D3DEEC;
+  --primary: #86ABE4;
+  --accent: #7EA2DB;
+  --digit: #4A72B5;
+  --deep: #3B6BB0;
+  --glass: rgba(255, 255, 255, 0.62);
+  --glass-edge: rgba(255, 255, 255, 0.9);
+  --shadow: 0 10px 30px rgba(74, 114, 181, 0.12), 0 2px 6px rgba(27, 42, 63, 0.05);
+  --radius: 26px;
+  --display: "Sora", system-ui, sans-serif;
+  --body: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font: 17px/1.6 var(--body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+/* Blurred pastel sky behind everything: baby blue, lilac, mint. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20vmax;
+  z-index: -1;
+  background:
+    radial-gradient(40vmax 34vmax at 18% 12%, rgba(134, 171, 228, 0.42), transparent 70%),
+    radial-gradient(36vmax 30vmax at 88% 22%, rgba(196, 178, 236, 0.38), transparent 70%),
+    radial-gradient(40vmax 30vmax at 70% 92%, rgba(170, 222, 205, 0.32), transparent 70%),
+    radial-gradient(30vmax 26vmax at 8% 80%, rgba(176, 200, 240, 0.30), transparent 70%);
+  filter: blur(20px);
+}
+a { color: var(--deep); }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0; letter-spacing: -0.01em; }
+
+.wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
+}
+
+/* Header */
+.top { position: sticky; top: 0; z-index: 10; padding: 12px 0; }
+.top .bar { display: flex; align-items: center; gap: 16px; padding: 10px 12px 10px 14px; border-radius: 20px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 20px; }
+.brand img { width: 36px; height: 36px; border-radius: 10px; }
+.top nav { margin-left: auto; display: flex; align-items: center; gap: 4px; }
+.top nav a { text-decoration: none; color: var(--muted); font-weight: 500; padding: 8px 12px; border-radius: 12px; }
+.top nav a:hover { color: var(--ink); background: rgba(255, 255, 255, 0.7); }
+.top nav a.btn-primary, .top nav a.btn-primary:hover { color: #fff; background: linear-gradient(180deg, #7EA2DB, #5F88C8); }
+.top nav a.btn-glass { color: var(--ink); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 24px; border-radius: 18px;
+  font: 600 17px/1 var(--body); text-decoration: none; cursor: pointer; border: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: linear-gradient(180deg, #7EA2DB, #5F88C8); color: #fff; box-shadow: 0 8px 20px rgba(95, 136, 200, 0.4); }
+.btn-primary:hover { box-shadow: 0 10px 26px rgba(126, 162, 219, 0.6); }
+.btn-glass { background: rgba(255, 255, 255, 0.75); color: var(--ink); border: 1px solid var(--glass-edge); box-shadow: var(--shadow); }
+.btn-glass:hover { background: #fff; }
+.btn-sm { min-height: 42px; padding: 0 16px; font-size: 15px; border-radius: 14px; }
+.btn svg { width: 20px; height: 20px; flex: none; }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; padding: 48px 0 64px; }
+.eyebrow { display: inline-block; font: 600 13px/1 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep); background: rgba(255, 255, 255, 0.7); border: 1px solid var(--glass-edge); padding: 8px 12px; border-radius: 999px; }
+.hero h1 { font-size: clamp(38px, 5.4vw, 64px); margin: 18px 0 18px; }
+.hero h1 em { font-style: normal; color: var(--deep); }
+.hero p.lead { font-size: 19px; color: var(--muted); max-width: 34em; margin: 0 0 28px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.small { font-size: 14px; color: var(--faint); margin-top: 14px; }
+
+.phones { position: relative; height: 560px; }
+.phone {
+  position: absolute; width: 250px; border-radius: 34px; overflow: hidden;
+  border: 6px solid rgba(255, 255, 255, 0.95); box-shadow: 0 24px 60px rgba(59, 107, 176, 0.25);
+  background: #fff;
+}
+.phone.a { left: 4%; top: 30px; transform: rotate(-6deg); }
+.phone.b { right: 4%; top: 0; transform: rotate(5deg); z-index: 1; }
+
+/* Sections */
+section { padding: 56px 0; }
+.section-head { text-align: center; max-width: 640px; margin: 0 auto 36px; }
+.section-head h2 { font-size: clamp(28px, 3.6vw, 40px); margin-bottom: 10px; }
+.section-head p { color: var(--muted); margin: 0; }
+
+.games { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.game { padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+.game img { border-radius: 16px; aspect-ratio: 9 / 13; object-fit: cover; object-position: top; border: 1px solid var(--line); }
+.game h3 { font-size: 20px; }
+.game p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.tag { align-self: flex-start; font: 700 11px/1 var(--body); letter-spacing: 0.08em; color: #fff; background: var(--accent); padding: 6px 8px; border-radius: 8px; }
+
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.feature { padding: 24px; }
+.feature .ico { width: 48px; height: 48px; border-radius: 15px; display: grid; place-items: center; background: linear-gradient(180deg, #EAF1FC, #DCE7F8); color: var(--deep); margin-bottom: 14px; }
+.feature .ico svg { width: 24px; height: 24px; }
+.feature h3 { font-size: 18px; margin-bottom: 6px; }
+.feature p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+.band { padding: 40px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+.band h2 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 8px; }
+.band p { margin: 0; color: var(--muted); }
+
+/* Ad slots (AdSense). Empty until AdSense approves the site; they take no space while empty. */
+.ad { margin: 24px auto; text-align: center; min-height: 0; }
+.ad:empty { display: none; }
+/* Google marks slots it couldn't fill (e.g. before the site is approved); hide them instead of leaving a gap. */
+ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
+.ad-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); margin-bottom: 4px; }
+
+/* Text pages (how to play, privacy, terms) */
+.doc { max-width: 820px; margin: 24px auto 64px; padding: clamp(24px, 4vw, 48px); }
+.doc h1 { font-size: clamp(30px, 4vw, 42px); margin-bottom: 8px; }
+.doc h2 { font-size: 22px; margin: 36px 0 10px; }
+.doc h3 { font-size: 18px; margin: 22px 0 6px; }
+.doc p, .doc li { color: #2C3B52; }
+.doc .muted { color: var(--muted); }
+.doc li { margin: 6px 0; }
+.doc figure { margin: 18px 0; }
+.doc figure img { width: min(300px, 100%); border-radius: 18px; border: 1px solid var(--line); }
+kbd { font: 600 13px/1 var(--body); padding: 3px 7px; border-radius: 7px; background: #fff; border: 1px solid var(--line); box-shadow: 0 1px 0 var(--line); color: var(--ink); }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 8px; }
+.toc a { text-decoration: none; font-weight: 600; font-size: 15px; padding: 8px 14px; border-radius: 12px; background: rgba(255, 255, 255, 0.8); border: 1px solid var(--line); }
+
+/* Footer */
+footer { padding: 32px 0 48px; color: var(--muted); font-size: 15px; }
+footer .row { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding: 20px 24px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--ink); }
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; padding-top: 24px; gap: 24px; }
+  /* Side-by-side screenshots in normal flow, so they can't spill into the next section. */
+  .phones { height: auto; display: flex; justify-content: center; max-width: 460px; width: 100%; margin: 0 auto; padding: 8px 0 24px; }
+  .phone { position: relative; width: 46%; max-width: 210px; }
+  .phone.a { left: auto; top: 24px; margin-right: -4%; }
+  .phone.b { right: auto; top: 0; }
+  .games { grid-template-columns: repeat(2, 1fr); }
+  .features { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .top nav a.hide-sm { display: none; }
+  .phone { border-width: 4px; border-radius: 24px; }
+  .games { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .game { padding: 12px; }
+  .game h3 { font-size: 17px; }
+  .game p { font-size: 14px; }
+  .features { grid-template-columns: 1fr; }
+  .band { grid-template-columns: 1fr; padding: 28px 22px; }
+  .cta .btn { flex: 1 1 100%; }
+}
 </style>
 </head>
 <body>
-<main>
-<h1>SumGrid Privacy Policy</h1>
-<p class="muted">Effective date: 14 October 2026 · App: SumGrid (Android package <code>com.sumgrid.app</code>, iOS bundle <code>com.sumgrid.app</code>)</p>
+
+<header class="top">
+  <div class="wrap">
+    <div class="bar glass">
+      <a class="brand" href="https://sumgridgames.com/"><img src="https://sumgridgames.com/img/icon-64.png" alt="" width="36" height="36">SumGrid</a>
+      <nav><a class="btn btn-primary btn-sm" href="https://sumgridgames.com/play.html">Play now</a></nav>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+<article class="doc glass">
+<h1>Privacy Policy</h1>
+<p class="muted">Effective date: 15 October 2026 · Covers the SumGrid app (Android package <code>com.sumgrid.app</code>,
+iOS bundle <code>com.sumgrid.app</code>) and the website sumgridgames.com, including the browser version of the game.</p>
 
 <p>SumGrid is a puzzle game (Sudoku, Number Sums, Sum Sudoku and Kakuro) made by SumGrid Games (“we”, “us”).
-This policy explains what information the app handles and why. We keep it short because the app collects very little.</p>
+This policy explains what information the app and the website handle and why. We keep it short because we collect very little.</p>
 
 <h2>1. Information that stays on your device</h2>
 <p>Your game progress, levels completed, statistics, streaks, saved games, settings and the optional name you type in
-the Account screen are stored <strong>only on your device</strong>. We do not have servers that receive this data and we
-cannot see it. If you use “Copy backup”, the app creates a backup code on your device; it is only shared if you choose
-to paste or send it somewhere yourself. Uninstalling the app deletes this data.</p>
+the Account screen are stored <strong>only on your device</strong>: in the app's storage on your phone, or in your
+browser's local storage when you play on sumgridgames.com. We do not have servers that receive this data and we cannot
+see it. If you use “Copy backup”, a backup code is created on your device; it is only shared if you choose to paste or
+send it somewhere yourself. Uninstalling the app, or clearing your browser's site data, deletes this data.</p>
 
 <h2>2. You don’t need an account</h2>
 <p>SumGrid works without signing in. We do not ask for your name, email address, phone number, contacts, photos,
 location or any other personal information.</p>
 
-<h2>3. Advertising (Google AdMob)</h2>
-<p>The free version of SumGrid shows ads provided by Google AdMob. To show and measure ads, prevent fraud and improve its
+<h2>3. Advertising in the app (Google AdMob)</h2>
+<p>The free version of the app shows ads provided by Google AdMob. To show and measure ads, prevent fraud and improve its
 services, Google’s Mobile Ads SDK may automatically collect and process information such as:</p>
 <ul>
   <li>your device’s advertising identifier (Android Advertising ID / Apple IDFA, if you allow it) and other device identifiers;</li>
@@ -40,47 +228,77 @@ services, Google’s Mobile Ads SDK may automatically collect and process inform
   <li>device and app information (model, operating system, app version, language);</li>
   <li>interactions with ads (views and taps) and diagnostic / performance data.</li>
 </ul>
-<p>This information is collected and used by Google as an independent controller under Google’s own policies:
-<a href="https://policies.google.com/privacy">Google Privacy Policy</a> and
-<a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a>.</p>
-<p><strong>Your choices.</strong> If you are in the European Economic Area, the United Kingdom or Switzerland, the app asks
-for your consent before personalised ads are shown, using Google’s consent tool; you can change your choice at any time in
+<p>If you are in the European Economic Area, the United Kingdom or Switzerland, the app asks for your consent before
+personalised ads are shown, using Google’s consent tool; you can change your choice at any time in
 <em>Account → About &amp; privacy → Ad privacy choices</em>. On Android you can reset or delete your advertising ID in
-<em>Settings → Privacy → Ads</em>; on iOS you can decline tracking when asked, or later in <em>Settings → Privacy &amp; Security → Tracking</em>.
-Ads are limited to content suitable for a general audience.</p>
-<p>If you buy SumGrid Pro (when available), ads are turned off and the ads SDK no longer requests ads.</p>
+<em>Settings → Privacy → Ads</em>; on iOS you can decline tracking when asked, or later in
+<em>Settings → Privacy &amp; Security → Tracking</em>. Ads are limited to content suitable for a general audience.
+If you buy SumGrid Pro, ads are turned off and the ads SDK no longer requests ads.</p>
 
-<h2>4. Notifications</h2>
-<p>If you allow notifications, SumGrid schedules a daily reminder <strong>on your device</strong>. No information is sent
-to us to do this. You can turn reminders off in the app (Account → Daily reminder) or in your phone’s settings.</p>
+<h2>4. Advertising and cookies on the website (Google AdSense)</h2>
+<p>sumgridgames.com may show ads provided by Google AdSense. Google and its partners use cookies and similar technologies
+to serve ads based on your previous visits to this and other websites, to limit how often you see an ad, to measure ads
+and to prevent fraud. This can involve your IP address, browser and device information, and your interactions with ads.</p>
+<ul>
+  <li>Visitors in the EEA, the UK and Switzerland are asked for consent through a Google-certified consent banner before
+    cookies are used for personalised ads. You can change your choice at any time with the privacy link the banner leaves on the page.</li>
+  <li>You can turn off personalised ads from Google in <a href="https://adssettings.google.com">Google Ads Settings</a>,
+    and learn more at <a href="https://policies.google.com/technologies/ads">how Google uses cookies in advertising</a>.</li>
+  <li>Google processes this information as an independent controller under the
+    <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and
+    <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a>.</li>
+</ul>
+<p>The website loads its fonts from Google Fonts, which means your browser connects to Google's servers and shares your IP
+address with Google for that purpose. Our web host keeps standard server logs (IP address, pages requested, browser type)
+for security and to keep the site running; we don't use them to identify you.</p>
 
-<h2>5. Purchases</h2>
-<p>If in-app purchases are offered, payments are handled entirely by Google Play or the Apple App Store. We do not receive
-your payment details.</p>
+<h2>5. Notifications</h2>
+<p>If you allow notifications in the app, SumGrid schedules a daily reminder <strong>on your device</strong>. No information
+is sent to us to do this. You can turn reminders off in the app (Account → Daily reminder) or in your phone’s settings.
+The website does not send notifications.</p>
 
-<h2>6. Children</h2>
+<h2>6. Purchases</h2>
+<p>In-app purchases are handled entirely by Google Play or the Apple App Store. We do not receive your payment details.</p>
+
+<h2>7. Children</h2>
 <p>SumGrid is a general-audience game and is not directed to children under 13. We do not knowingly collect personal
 information from children. If you believe a child has provided personal information, contact us and we will help.</p>
 
-<h2>7. Data sharing and selling</h2>
-<p>We do not sell your personal information and we do not share it with anyone, because we do not collect it. The only
-third party involved is Google AdMob, as described in section 3.</p>
+<h2>8. Data sharing and selling</h2>
+<p>We do not sell your personal information and we do not share it with anyone, because we do not collect it. The third
+parties involved are Google (AdMob, AdSense, Google Fonts), our web host, and the app stores, as described above.</p>
 
-<h2>8. Security and retention</h2>
-<p>Data on your device is protected by your device’s own security. Information collected by Google is handled under
-Google’s policies and retention periods. Communication with ad servers is encrypted in transit.</p>
+<h2>9. Security and retention</h2>
+<p>Data on your device is protected by your device’s own security. The website is served over an encrypted connection
+(HTTPS). Information collected by Google is handled under Google’s policies and retention periods.</p>
 
-<h2>9. Your rights</h2>
-<p>Because your game data never leaves your device, you control it directly: you can delete it by uninstalling the app or
-clearing its storage. For questions about data processed by Google, see the links in section 3. You can also contact us
-with any privacy request.</p>
+<h2>10. Your rights</h2>
+<p>Because your game data never leaves your device, you control it directly: you can delete it by uninstalling the app,
+clearing its storage, or clearing this site's data in your browser. For questions about data processed by Google, see the
+links above. You can also contact us with any privacy request.</p>
 
-<h2>10. Changes</h2>
-<p>We may update this policy when the app changes. We will change the effective date above and, for significant changes,
-let you know in the app.</p>
+<h2>11. Changes</h2>
+<p>We may update this policy when the app or website changes. We will change the effective date above and, for significant
+changes, let you know in the app or on the website.</p>
 
-<h2>11. Contact</h2>
+<h2>12. Contact</h2>
 <p>SumGrid Games · <a href="mailto:sumgridgames@gmail.com">sumgridgames@gmail.com</a></p>
+</article>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="row glass">
+      <span>© 2026 SumGrid Games</span>
+      <nav>
+        <a href="https://sumgridgames.com/play.html">Play</a>
+        <a href="https://sumgridgames.com/how-to-play.html">How to play</a>
+        <a href="https://sumgridgames.com/about.html">About &amp; contact</a>
+        <a href="https://sumgridgames.com/privacy.html">Privacy</a>
+        <a href="https://sumgridgames.com/terms.html">Terms</a>
+      </nav>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
